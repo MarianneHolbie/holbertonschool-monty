@@ -62,6 +62,11 @@ typedef struct arg_s
 extern arg_t arg;
 
 
+/* function interpreter */
+void intp_monty(void); /* open, read, close file and call cmp_op() */
+void cmp_op(void);  /* search op function */
+
+
 
 /* opcodes functions start */
 void push(stack_t **stack, unsigned int line_number);
