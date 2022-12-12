@@ -36,12 +36,36 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct arg_s- struct to manage access of arg to different function
+ * @argv: array
+ * @n_line: lines counter
+ * @line: line of command
+ * @stack: double linked list
+ * @fp: file descriptor
+ *
+ * Description: all data used by various function 
+ */
+
+typedef struct arg_s
+{
+	char **argv;
+	unsigned int n_line;
+	char *line;
+	stack_t *stack_head;
+	FILE *fp;
+	
+}arg_t;
+
+
+/* ***** EXTERNE VARIABLE *************** */
+extern arg_t arg;
 
 
 
-
-
-
+/* opcodes functions start */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 
 
 
