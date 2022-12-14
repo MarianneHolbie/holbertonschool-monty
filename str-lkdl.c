@@ -62,7 +62,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
  * @index: unsigned int
  * Return:
  */
-/*
+
 int *del_dnodeint_index(stack_t **head, unsigned int index)
 {
 	stack_t *tmp = *head;
@@ -76,9 +76,9 @@ int *del_dnodeint_index(stack_t **head, unsigned int index)
 		*head = tmp->next;
 	}
 	free(tmp);
-	return (1);
+	return (0);
 }
-*/
+
 /**
  *  del_nodeint_index - delete node
  * @head: double pointer
