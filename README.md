@@ -61,7 +61,7 @@ All of the following files are scripts and programs written in C:
 
 ## Authors
 
-**Pauline Parmentier**
+**Pauline Parmigiani**
 GitHub: [@paulinepar](https://github.com/paulinepar)
 
 **Marianne Arrué**
