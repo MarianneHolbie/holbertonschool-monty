@@ -41,7 +41,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (isdigit == -1)
 	{
-		fprintf(stderr, "L%u: usage push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_all(*stack);
 		exit(EXIT_FAILURE);
 	}
