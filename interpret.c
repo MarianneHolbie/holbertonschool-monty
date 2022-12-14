@@ -46,12 +46,11 @@ void cmp_op(void)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
-		/*
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
+		/*{"pint", pint},*/
+		/*{"pop", pop},*/
+		/*{"swap", swap},*/
+		/*{"add", add},*/
+		/*{"nop", nop},*/
 		{NULL, NULL},
 	};
 
@@ -70,8 +69,6 @@ void cmp_op(void)
 	}
 
 	/* if is not an monty instruction */
-	fprintf(stderr, "line%d: unknown function %s", arg.n_line, cmd_op);
+	fprintf(stderr, "L%d: unknown function %s", arg.n_line, cmdop);
 	exit(EXIT_FAILURE);
 }
-
-
