@@ -1,5 +1,6 @@
 #include "monty.h"
 
+arg_t arg;
 
 /**
  * main - entry point
@@ -20,8 +21,8 @@ int main(int argc, char **argv)
 	arg.argv = argv;
 	arg.n_line = 0;
 	arg.line = NULL;
-	arg.stack = NULL;
-	arg.file = NULL;
+	arg.stack_head = NULL;
+	arg.fp = NULL;
 
 	/* call interpreter */
 	intp_monty();

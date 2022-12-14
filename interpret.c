@@ -49,10 +49,10 @@ void cmp_op(void)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add},
+		/*{"add", add},*/
 		{"nop", nop},
-		{NULL, NULL};
-	}
+		{NULL, NULL},
+	};
 
 	/* split line to give the name of op command */
 	cmd_op = strtok(arg.line, " \n\t\r");
@@ -62,14 +62,14 @@ void cmp_op(void)
 	{
 		if (!strcmp(cmd_op, op[i].opcode))
 		{
-			op[i].f(&(arg.stack), arg.n_line);
+			op[i].f(&(arg.stack_head), arg.n_line);
 			return;
 		}
 		i++;
 	}
 
 	/* if is not an monty instruction */
-	fprint(stderr, "line%d: unknown function %s", arg.n_line, cmd_op);
+	fprintf(stderr, "line%d: unknown function %s", arg.n_line, cmd_op);
 	exit(EXIT_FAILURE);
 }
 
