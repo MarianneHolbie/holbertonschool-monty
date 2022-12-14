@@ -90,5 +90,6 @@ stack_t *add_dnodeint(stack_t **head, const int n);
 int del_dnodeint_index(stack_t **head, unsigned int index);
 
 void free_all(stack_t *head);
+void free_dlist(stack_t *head);
 
 #endif

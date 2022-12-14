@@ -41,7 +41,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	if (newnode == NULL)
 	{
 		fprintf(stderr, "error malloc\n");
-		free(newnode);
+		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
 
@@ -55,31 +55,6 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	(*head) = newnode;
 	return (newnode);
 }
-
-/**
- * del_dnodeint_index- delete node
- * @head: double pointer
- * @index: unsigned int
- * Return: 1 if success
- */
-
-
-/*int del_dnodeint_index(stack_t **head, unsigned int index)
-{
-	stack_t *tmp = *head;
-
-	if (!tmp)
-		return (0);
-
-	else
-	{
-		index = (*head)->n;
-		*head = tmp->next;
-	}
-	free(tmp);
-	return (1);
-}
-*/
 
 /**
  * free_all- free stack
@@ -103,6 +78,24 @@ void free_all(stack_t *head)
 	/* close file */
 	if (arg.fp)
 		fclose(arg.fp);
+}
+
+/**
+ * free_dlist- free double linked list
+ * @head: head of double linked list
+ * 
+ */
+
+void free_dlist(stack_t *head)
+{
+	stack_t *tmp = head;
+
+	while (head)
+	{
+		head = head->next;
+		free(tmp);
+		tmp = head;
+	}
 }
 
 /**

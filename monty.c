@@ -27,5 +27,7 @@ int main(int argc, char **argv)
 	/* call interpreter */
 	intp_monty();
 
+	free_dlist(arg.stack_head);
+
 	return (EXIT_SUCCESS);
 }
