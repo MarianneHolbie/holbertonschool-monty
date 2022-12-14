@@ -56,33 +56,30 @@ void push(stack_t **stack, unsigned int line_number)
  * Description: function that print with opcodes pall
  * retur: 0
  */
-/*
-void pint(stack_t **stack, unsigned int line_number)
-{
-	(void)(line_number);
-
-
-}
-
-
+/**
+ * void pint(stack_t **stack, unsigned int line_number)
+ * {
+ *	(void)(line_number);
+ * }
+ */
 /**
  * void pop - function to del element in a stack
  * @stack: double pointer
  * @line_number: unsigned int
  * Description: function that print with opcodes pall
  * retur: 0
+ */
 
-
-void pop(stack_t **stack, unsigned int line_number)
-{
-	(void)(line_number);
-
-	if (*stack != NULL)
-		del_dnodeint_index(stack);
-	else
-	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-}
-*/
+/**
+ * void pop(stack_t **stack, unsigned int line_number)
+ * {
+ *	(void)(line_number);
+ *	if (*stack != NULL)
+ *		del_dnodeint_index(stack);
+ *	else
+ *	{
+ *		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+ *		exit(EXIT_FAILURE);
+ *	}
+ * }
+ */
