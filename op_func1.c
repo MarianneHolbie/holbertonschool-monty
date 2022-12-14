@@ -66,8 +66,13 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void pint(stack_t **stack, unsigned int line_number)
 {
+	int value = 0;
+
 	if (stack != NULL)
-		printf("%d\n", (*stack)->n);
+	{
+		value = (*stack)->n;
+		fprintf(stdout, "%i\n", value);
+	}
 	else
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
@@ -87,7 +92,7 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		fprintf(stderr, "L%u: can't pop from an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
