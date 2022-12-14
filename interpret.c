@@ -49,7 +49,7 @@ void cmp_op(void)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		/*{"add", add},*/
+		{"add", add},
 		{"nop", nop},
 		{NULL, NULL},
 	};
