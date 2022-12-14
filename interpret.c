@@ -55,10 +55,10 @@ void cmp_op(void)
 	};
 
 	/* split line to give the name of op command */
-	cmdop = strtok(arg.line, " \n\t\r");
+	cmdop = strtok(arg.line, " \n");
 
 	/* compare cmd_op with all instruction */
-	while (op[i].opcode != NULL)
+	while (op[i].opcode != NULL || cmdop)
 	{
 		if (!strcmp(cmdop, op[i].opcode))
 		{
@@ -70,5 +70,6 @@ void cmp_op(void)
 
 	/* if is not an monty instruction */
 	fprintf(stderr, "L%d: unknown instruction %s", arg.n_line, cmdop);
+	free_all(arg.stack_head);
 	exit(EXIT_FAILURE);
 }

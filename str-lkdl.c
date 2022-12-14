@@ -57,13 +57,14 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 }
 
 /**
- * del_nodeint_index - delete node
+ * del_dnodeint_index- delete node
  * @head: double pointer
  * @index: unsigned int
- * Return:
+ * Return: 1 if success
  */
-/*
-int *del_dnodeint_index(stack_t **head, unsigned int index)
+
+
+/*int del_dnodeint_index(stack_t **head, unsigned int index)
 {
 	stack_t *tmp = *head;
 
@@ -79,10 +80,11 @@ int *del_dnodeint_index(stack_t **head, unsigned int index)
 	return (1);
 }
 */
+
 /**
  * free_all- free stack
  * @head: double pointer
- * 
+ *
  */
 
 void free_all(stack_t *head)

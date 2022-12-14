@@ -43,7 +43,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (isdigit == -1)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", arg.n_line);
-		free_all(*stack);
+		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
 	number = atoi(line);
