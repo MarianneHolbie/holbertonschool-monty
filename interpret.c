@@ -16,6 +16,7 @@ void intp_monty(void)
 	if (arg.fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", arg.argv[1]);
+		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -55,8 +56,10 @@ void cmp_op(void)
 	};
 
 	/* split line to give the name of op command */
-	cmdop = strtok(arg.line, " \n");
+	cmdop = strtok(arg.line, "\n ");
 
+	if (cmdop == NULL)
+		return;
 	/* compare cmd_op with all instruction */
 	while (op[i].opcode != NULL && cmdop)
 	{
@@ -69,7 +72,7 @@ void cmp_op(void)
 	}
 
 	/* if is not an monty instruction */
-	fprintf(stderr, "L%d: unknown instruction %s\n", arg.n_line, cmdop);
+	fprintf(stderr, "L%ld: unknown instruction %s\n", arg.n_line, cmdop);
 	free_all(arg.stack_head);
 	exit(EXIT_FAILURE);
 }

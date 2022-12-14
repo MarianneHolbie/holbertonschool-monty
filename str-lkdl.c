@@ -15,6 +15,12 @@ int is_digit(char *string)
 
 	while (string[n])
 	{
+		if (string[n] == '-')
+		{
+			n++;
+			continue;
+		}
+
 		if (string[n] >= '0' && string[n] <= '9')
 		{
 			n++;
@@ -40,7 +46,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
-		fprintf(stderr, "error malloc\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
@@ -83,7 +89,7 @@ void free_all(stack_t *head)
 /**
  * free_dlist- free double linked list
  * @head: head of double linked list
- * 
+ *
  */
 
 void free_dlist(stack_t *head)

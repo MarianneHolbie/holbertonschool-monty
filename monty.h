@@ -51,7 +51,7 @@ typedef struct instruction_s
 typedef struct arg_t
 {
 	char **argv;
-	unsigned int n_line;
+	ssize_t n_line;
 	char *line;
 	stack_t *stack_head;
 	FILE *fp;
