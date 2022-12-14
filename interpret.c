@@ -15,7 +15,7 @@ void intp_monty(void)
 	/* test fp */
 	if (arg.fp == NULL)
 	{
-		fprintf(stderr, "Error: file %s can not open", arg.argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", arg.argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -69,6 +69,6 @@ void cmp_op(void)
 	}
 
 	/* if is not an monty instruction */
-	fprintf(stderr, "L%d: unknown function %s", arg.n_line, cmdop);
+	fprintf(stderr, "L%d: unknown instruction %s", arg.n_line, cmdop);
 	exit(EXIT_FAILURE);
 }
