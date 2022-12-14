@@ -10,17 +10,20 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head;
+	stack_t *ptr;
+	size_t size = 0;
 
 	(void)(line_number);
 
-	head = *stack;
+	ptr = *stack;
 
-	while (head != NULL)
+	while (ptr != NULL)
 	{
-		printf("%d\n", head->n);
-		head = head->next;
+		size++;
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
 	}
+	free(ptr);
 }
 
 /**
