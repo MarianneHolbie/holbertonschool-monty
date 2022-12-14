@@ -98,6 +98,52 @@ void free_all(stack_t *head)
 		free(tmp);
 		tmp = head;
 	}
+
+	/* close file */
 	if (arg.fp)
 		fclose(arg.fp);
 }
+
+/**
+ * del_dnodeint_index- delete stack at index
+ * @head: head of stack
+ * @index: place of node to delete
+ *
+ * Return: 1 if success, -1 failed
+ */
+
+int del_dnodeint_index(stack_t **head, unsigned int index)
+{
+	stack_t *tmp;
+	unsigned int count = 0;
+
+	tmp = (*head);
+
+	if (*head == NULL)
+		return (-1);
+
+	for (count = 0; tmp != NULL && count < index; count++)
+	{
+		tmp = tmp->next;
+	}
+	if (tmp == NULL)
+		return (-1);
+
+	if (*head == NULL || tmp == NULL)
+		return (-1);
+
+	if (*head == tmp)
+		*head = tmp->next;
+
+	if (tmp->next != NULL)
+		tmp->next->prev = tmp->prev;
+
+	if (tmp->prev != NULL)
+		tmp->prev->next = tmp->next;
+	free(tmp);
+	return (1);
+}
+	if (arg.fp)
+		fclose(arg.fp);
+}
+

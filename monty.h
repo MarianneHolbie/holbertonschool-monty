@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stddef.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,7 +42,7 @@ typedef struct instruction_s
  * @argv: array
  * @n_line: lines counter
  * @line: line of command
- * @stack: double linked list
+ * @stack_head: double linked list
  * @fp: file descriptor
  *
  * Description: all data used by various function
@@ -65,25 +66,29 @@ extern arg_t arg;
 void intp_monty(void); /* open, read, close file and call cmp_op() */
 void cmp_op(void);  /* search op function */
 
+/* function associated : string, linked list */
+int check_arg(char *s);
+stack_t *add_dnodeint(stack_t **head, const int n);
+int del_dnodeint_index(stack_t **head, unsigned int index);
+void free_all(stack_t *head);
 
-
-/* opcodes functions start */
+/* opcodes functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+
 int is_digit(char *string);
-/*
+
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-*/
+
 /*associed function opcode*/
 stack_t *add_dnodeint(stack_t **head, const int n);
-/*
-int *del_dnodeint_index(stack_t **head, unsigned int index);
-*/
-void free_all(stack_t *head);
 
+int *del_dnodeint_index(stack_t **head, unsigned int index);
+
+void free_all(stack_t *head);
 
 #endif

@@ -52,7 +52,6 @@ void cmp_op(void)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		*/
 		{NULL, NULL},
 	};
 
@@ -71,7 +70,7 @@ void cmp_op(void)
 	}
 
 	/* if is not an monty instruction */
-	fprintf(stderr, "line%d: unknown function %s", arg.n_line, cmdop);
+	fprintf(stderr, "line%d: unknown function %s", arg.n_line, cmd_op);
 	exit(EXIT_FAILURE);
 }
 
