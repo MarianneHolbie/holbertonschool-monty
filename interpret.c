@@ -69,7 +69,7 @@ void cmp_op(void)
 	}
 
 	/* if is not an monty instruction */
-	fprintf(stderr, "L%d: unknown instruction %s", arg.n_line, cmdop);
+	fprintf(stderr, "L%d: unknown instruction %s\n", arg.n_line, cmdop);
 	free_all(arg.stack_head);
 	exit(EXIT_FAILURE);
 }
