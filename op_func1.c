@@ -10,17 +10,20 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head;
+	stack_t *ptr;
+	size_t size = 0;
 
 	(void)(line_number);
 
-	head = *stack;
+	ptr = *stack;
 
-	while (head != NULL)
+	while (ptr != NULL)
 	{
-		printf("%d\n", head->n);
-		head = head->next;
+		size++;
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
 	}
+	free(ptr);
 }
 
 /**
@@ -33,6 +36,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void push(stack_t **stack, unsigned int line_number)
 {
+	(void)(line_number);
 	char *line = NULL;
 	int number, isdigit;
 
@@ -41,8 +45,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (isdigit == -1)
 	{
-		fprintf(stderr, "L%u: usage push integer\n", line_number);
-		free_all(*stack);
+		fprintf(stderr, "L%u: usage: push integer\n", arg.n_line);
+		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
 	number = atoi(line);
@@ -56,12 +60,20 @@ void push(stack_t **stack, unsigned int line_number)
  * Description: function that print with opcodes pall
  * retur: 0
  */
-/**
- * void pint(stack_t **stack, unsigned int line_number)
- * {
- *	(void)(line_number);
- * }
- */
+
+void pint(stack_t **stack, unsigned int line_number)
+{
+	(void)(line_number);
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_all(arg.stack_head);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
+
 /**
  * void pop - function to del element in a stack
  * @stack: double pointer
@@ -70,16 +82,14 @@ void push(stack_t **stack, unsigned int line_number)
  * retur: 0
  */
 
-/**
- * void pop(stack_t **stack, unsigned int line_number)
- * {
- *	(void)(line_number);
- *	if (*stack != NULL)
- *		del_dnodeint_index(stack);
- *	else
- *	{
- *		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
- *		exit(EXIT_FAILURE);
- *	}
- * }
- */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	(void)(line_number);
+	if (*stack != NULL)
+	{
+		fprintf(stderr, "L%u: can't pop from an empty stack\n", line_number);
+		free_all(arg.stack_head);
+		exit(EXIT_FAILURE);
+	}
+	del_dnodeint_index(stack, 0);
+}

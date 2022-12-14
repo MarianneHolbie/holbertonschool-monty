@@ -71,18 +71,15 @@ void cmp_op(void);  /* search op function */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int is_digit(char *string);
-/*
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-*/
+
 /*associed function opcode*/
 stack_t *add_dnodeint(stack_t **head, const int n);
-/*
 int *del_dnodeint_index(stack_t **head, unsigned int index);
-*/
 void free_all(stack_t *head);
 
 
