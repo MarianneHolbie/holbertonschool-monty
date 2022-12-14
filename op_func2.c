@@ -10,27 +10,17 @@
 
 void swap(stack_t **stack, unsigned int line_number)
 {
+	int value;
 
-	stack_t *head;
-	int len = 0, tmp;
-
-	head = *stack;
-
-	while (head)
-	{
-		head = head->next;
-		len++;
-	}
-	if (len < 2)
+	if ((!stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
-	head = *stack;
-	tmp = head->n;
-	head->n = head->next->n;
-	head->next->n = tmp;
+	value = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = value;
 }
 
 
@@ -44,19 +34,18 @@ void swap(stack_t **stack, unsigned int line_number)
 
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head = NULL;
-	int h;
+	int value1 = 0, sum;
 
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		free_all(arg.stack_head);
 		exit(EXIT_FAILURE);
 	}
-	head = *stack;
-	h = head->n;
-	head->next->n = h;
+	value1 = (*stack)->n;
 	del_dnodeint_index(stack, 0);
+	sum = value1 + (*stack)->n;
+	(*stack)->n = sum;
 }
 
 /**

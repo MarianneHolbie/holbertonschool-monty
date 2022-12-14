@@ -84,7 +84,6 @@ void pint(stack_t **stack, unsigned int line_number)
 
 void pop(stack_t **stack, unsigned int line_number)
 {
-	(void)(line_number);
 	if (*stack != NULL)
 	{
 		fprintf(stderr, "L%u: can't pop from an empty stack\n", line_number);
