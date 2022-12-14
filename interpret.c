@@ -58,7 +58,7 @@ void cmp_op(void)
 	cmdop = strtok(arg.line, " \n");
 
 	/* compare cmd_op with all instruction */
-	while (op[i].opcode != NULL || cmdop)
+	while (op[i].opcode != NULL && cmdop)
 	{
 		if (!strcmp(cmdop, op[i].opcode))
 		{
