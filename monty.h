@@ -17,9 +17,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -32,8 +32,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -44,18 +44,17 @@ typedef struct instruction_s
  * @stack: double linked list
  * @fp: file descriptor
  *
- * Description: all data used by various function 
+ * Description: all data used by various function
  */
 
-typedef struct arg_s
+typedef struct arg_t
 {
 	char **argv;
 	unsigned int n_line;
 	char *line;
 	stack_t *stack_head;
 	FILE *fp;
-	
-}arg_t;
+} arg_t;
 
 
 /* ***** EXTERNE VARIABLE *************** */
@@ -71,15 +70,20 @@ void cmp_op(void);  /* search op function */
 /* opcodes functions start */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-
-
-
-
-
-
-
-
-
+int is_digit(char *string);
+/*
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+*/
+/*associed function opcode*/
+stack_t *add_dnodeint(stack_t **head, const int n);
+/*
+int *del_dnodeint_index(stack_t **head, unsigned int index);
+*/
+void free_all(stack_t *head);
 
 
 #endif
