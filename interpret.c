@@ -46,13 +46,11 @@ void cmp_op(void)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
-		/*
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		*/
 		{NULL, NULL},
 	};
 
