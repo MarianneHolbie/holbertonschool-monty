@@ -41,11 +41,12 @@ void cmp_op(void)
 {
 
 	int i = 0; /* to move in list of op */
-	char *cmd_op = NULL; /* to get op in the line */
+	char *cmdop = NULL; /* to get op in the line */
 
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
+		/*
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
@@ -55,12 +56,12 @@ void cmp_op(void)
 	};
 
 	/* split line to give the name of op command */
-	cmd_op = strtok(arg.line, " \n\t\r");
+	cmdop = strtok(arg.line, " \n\t\r");
 
 	/* compare cmd_op with all instruction */
 	while (op[i].opcode != NULL)
 	{
-		if (!strcmp(cmd_op, op[i].opcode))
+		if (!strcmp(cmdop, op[i].opcode))
 		{
 			op[i].f(&(arg.stack_head), arg.n_line);
 			return;

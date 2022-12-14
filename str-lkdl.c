@@ -1,26 +1,25 @@
 #include "monty.h"
 
 /**
- * check_arg- check if string is digit
- * @s: string to test
+ *  is_digit - check string
+ * @string: char
  *
- * Return: 1 if number, -1 otherwise
+ * Return: 1
  */
-
-int check_arg(char *s)
+int is_digit(char *string)
 {
-	int index = 0;
+	int n = 0;
 
-	/* if no string */
-	if (!s)
+	if (!string)
 		return (-1);
 
-	/* while we have char in the string */
-	while (s[index])
+	while (string[n])
 	{
-		/* test if it is digit */
-		if (s[index] >= '0' && s[index] <= '9')
-			index++;
+		if (string[n] >= '0' && string[n] <= '9')
+		{
+			n++;
+		}
+
 		else
 			return (-1);
 	}
@@ -28,51 +27,71 @@ int check_arg(char *s)
 }
 
 /**
- * add_dnodeint- add value at the top of the stack
- * @head: head of stack
- * @n: value to add
- *
- * Return: new_node
+ *  add_dnodeint - add node
+ * @head: double pointer
+ * @n: const int
+ * Return: newnode
  */
 
 stack_t *add_dnodeint(stack_t **head, const int n)
 {
-	/* create new node */
-	stack_t *new_node = NULL;
+	stack_t *newnode = NULL;
 
-	/* allocate space  & test */
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	newnode = malloc(sizeof(stack_t));
+	if (newnode == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free(new_node);
+		fprintf(stderr, "error malloc\n");
+		free(newnode);
 		exit(EXIT_FAILURE);
 	}
-	/* add value */
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = *head;
-	/* new head */
-	if (*head)
-	{
-		(*head)->prev = new_node;
-	}
-	*head = new_node;
-	return (new_node);
+
+	newnode->n = n;
+	newnode->next = *head;
+	newnode->prev = NULL;
+
+	if ((*head) != NULL)
+		(*head)->prev = newnode;
+
+	(*head) = newnode;
+	return (newnode);
 }
 
-
 /**
- * free_all- function that free stack and close file
- * @head : head of stack
+ *  del_nodeint_index - delete node
+ * @head: double pointer
+ * @index: unsigned int
+ * Return:
+ */
+/*
+int *del_dnodeint_index(stack_t **head, unsigned int index)
+{
+	stack_t *tmp = *head;
+
+	if (!tmp)
+		return (0);
+
+	else
+	{
+		index = (*head)->n;
+		*head = tmp->next;
+	}
+	free(tmp);
+	return (1);
+}
+*/
+/**
+ *  del_nodeint_index - delete node
+ * @head: double pointer
+ * @index: unsigned int
+ * Return:
  */
 
 void free_all(stack_t *head)
 {
 	stack_t *tmp;
 
-	/* free the stack */
 	tmp = head;
+
 	while (head)
 	{
 		head = head->next;
@@ -124,3 +143,7 @@ int del_dnodeint_index(stack_t **head, unsigned int index)
 	free(tmp);
 	return (1);
 }
+	if (arg.fp)
+		fclose(arg.fp);
+}
+
