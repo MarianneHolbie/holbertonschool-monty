@@ -68,7 +68,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	int value = 0;
 
-	if (stack != NULL)
+	if (*stack != NULL)
 	{
 		value = (*stack)->n;
 		fprintf(stdout, "%i\n", value);
@@ -111,7 +111,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	int value;
 
 	/* if no stack or only one in stack */
-	if ((!stack) || !(*stack)->next)
+	if ((!*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free(arg.stack_head);
